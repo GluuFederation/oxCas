@@ -1,5 +1,5 @@
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:54:20 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:56:42 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:54:20 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:56:42 2014
 @@ -75,3 +75,9 @@
  #=======================================
   

@@ -1,4 +1,4 @@
---- cas-server-webapp.orig/pom.xml	Mon Dec 15 15:10:16 2014
+--- cas-server-webapp/pom.xml	Mon Dec 15 15:10:16 2014
 +++ cas-server-webapp/pom.xml	Mon Dec 15 15:11:36 2014
 @@ -40,6 +40,11 @@
        <scope>compile</scope>

@@ -1,6 +1,5 @@
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\cas-servlet.xml cas-server-webapp\src\main\webapp\WEB-INF\cas-servlet.xml
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\cas-servlet.xml	Mon May 12 15:15:04 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\cas-servlet.xml	Mon Dec 15 17:45:01 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/cas-servlet.xml	Mon May 12 15:15:04 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/cas-servlet.xml	Mon Dec 15 17:45:01 2014
 @@ -264,4 +264,9 @@
          c:cas-ref="centralAuthenticationService"
          c:tgtCookieGenerator-ref="ticketGrantingTicketCookieGenerator"
@@ -11,9 +10,8 @@ diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\cas-servlet.xml cas-se
 +    <constructor-arg index="1" ref="centralAuthenticationService"/>
 +  </bean>
  </beans>
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\deployerConfigContext.xml cas-server-webapp\src\main\webapp\WEB-INF\deployerConfigContext.xml
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\deployerConfigContext.xml	Mon May 12 15:15:03 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\deployerConfigContext.xml	Mon Dec 15 17:45:14 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Mon May 12 15:15:03 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Mon Dec 15 17:45:14 2014
 @@ -60,6 +60,7 @@
                     | If more than one instance of the same handler class is configured, you must explicitly
                     | set its name to something other than its default name (typically the simple class name).
@@ -46,9 +44,8 @@ diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\deployerConfigContext.
      </bean>
  
      <!-- Required for proxy ticket mechanism. -->
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\login-webflow.xml cas-server-webapp\src\main\webapp\WEB-INF\login-webflow.xml
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\login-webflow.xml	Mon May 12 15:15:03 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\login-webflow.xml	Mon Dec 15 17:45:01 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/login-webflow.xml	Mon May 12 15:15:03 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/login-webflow.xml	Mon Dec 15 17:45:01 2014
 @@ -29,6 +29,13 @@
          <evaluate expression="initialFlowSetupAction" />
      </on-start>
@@ -63,9 +60,8 @@ diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\login-webflow.xml cas-
  	<action-state id="ticketGrantingTicketCheck">
          <evaluate expression="ticketGrantingTicketCheckAction.checkValidity(flowRequestContext)"/>
          <transition on="notExists" to="gatewayRequestCheck"/>
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\spring-configuration\applicationContext.xml cas-server-webapp\src\main\webapp\WEB-INF\spring-configuration\applicationContext.xml
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\spring-configuration\applicationContext.xml	Mon May 12 15:15:04 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\spring-configuration\applicationContext.xml	Mon Dec 15 17:45:01 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/applicationContext.xml	Mon May 12 15:15:04 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/applicationContext.xml	Mon Dec 15 17:45:01 2014
 @@ -136,5 +136,22 @@
  
      <!-- The scheduler bean wires up any triggers that define scheduled tasks -->
@@ -90,9 +86,8 @@ diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\spring-configuration\a
 +        <property name="redirectUri" value="${openid.redirect-uri}" />
 +    </bean>            
  </beans>
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\view\jsp\default\ui\casLoginView.jsp cas-server-webapp\src\main\webapp\WEB-INF\view\jsp\default\ui\casLoginView.jsp
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\view\jsp\default\ui\casLoginView.jsp	Mon May 12 15:15:06 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\view\jsp\default\ui\casLoginView.jsp	Mon Dec 15 17:45:01 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/view/jsp/default/ui/casLoginView.jsp	Mon May 12 15:15:06 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/view/jsp/default/ui/casLoginView.jsp	Mon Dec 15 17:45:01 2014
 @@ -74,6 +74,8 @@
        <input class="btn-reset" name="reset" accesskey="c" value="<spring:message code="screen.welcome.button.clear" />" tabindex="5" type="reset" />
      </section>
