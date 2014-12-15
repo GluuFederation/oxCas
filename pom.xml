@@ -138,6 +138,7 @@
                     <execution>
                         <phase>prepare-package</phase>
                         <goals>
+                            <goal>install</goal>
                             <goal>run</goal>
                         </goals>
                     </execution>
