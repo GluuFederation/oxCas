@@ -117,6 +117,7 @@
                             <patchDirectory>src/main/patches</patchDirectory>
                             <patchTrackingFile>${project.build.directory}/optimization-files/patches-applied.txt</patchTrackingFile>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
+                            <optimizations>false</optimizations>
                         </configuration>
                         <goals>
                             <goal>apply</goal>
@@ -139,7 +140,6 @@
                     <execution>
                         <phase>prepare-pakage</phase>
                         <goals>
-                            <goal>install</goal>
                             <goal>run</goal>
                         </goals>
                     </execution>
