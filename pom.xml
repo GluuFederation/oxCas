@@ -116,6 +116,7 @@
                         <configuration>
                             <patchDirectory>src/main/patches</patchDirectory>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
+                            <optimizations>false</optimizations>
                         </configuration>
                         <goals>
                             <goal>apply</goal>
@@ -133,14 +134,20 @@
                     <pomIncludes>
                         <pomInclude>pom.xml</pomInclude>
                     </pomIncludes>
+                    <invokerPropertiesFile>${basedir}/invoker.properties</invokerPropertiesFile>
                 </configuration>
                 <executions>
                     <execution>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>install</goal>
                             <goal>run</goal>
                         </goals>
+                        <configuration>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>install</goal>
+                            </goals>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
