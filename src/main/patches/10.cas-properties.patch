@@ -1,6 +1,5 @@
-diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\cas.properties cas-server-webapp\src\main\webapp\WEB-INF\cas.properties
---- cas-server-webapp.orig\src\main\webapp\WEB-INF\cas.properties	Mon May 12 15:15:03 2014
-+++ cas-server-webapp\src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:53:24 2014
+--- cas-server-webapp.orig/src\main\webapp\WEB-INF\cas.properties	Mon May 12 15:15:03 2014
++++ cas-server-webapp/src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:53:24 2014
 @@ -1,108 +1,71 @@
 -#
 -# Licensed to Jasig under one or more contributor license

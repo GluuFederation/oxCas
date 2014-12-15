@@ -1,4 +1,3 @@
-diff -aurN cas-server-4.0.0.orig\pom.xml cas-server-4.0.0\pom.xml
 --- pom.xml	Mon Dec 15 15:24:18 2014
 +++ pom.xml	Mon Dec 15 15:23:04 2014
 @@ -530,6 +530,13 @@
