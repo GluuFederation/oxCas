@@ -115,7 +115,6 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <patchDirectory>src/main/patches</patchDirectory>
-                            <patchTrackingFile>${project.build.directory}/optimization-files/patches-applied.txt</patchTrackingFile>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
                             <optimizations>false</optimizations>
                         </configuration>
