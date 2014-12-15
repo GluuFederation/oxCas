@@ -117,6 +117,7 @@
                             <patchDirectory>src/main/patches</patchDirectory>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
                             <optimizations>false</optimizations>
+                            <strictPatching>true</strictPatching>
                         </configuration>
                         <goals>
                             <goal>apply</goal>
