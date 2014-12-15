@@ -116,8 +116,6 @@
                         <configuration>
                             <patchDirectory>src/main/patches</patchDirectory>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
-                            <optimizations>false</optimizations>
-                            <strictPatching>true</strictPatching>
                         </configuration>
                         <goals>
                             <goal>apply</goal>
@@ -138,7 +136,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>prepare-pakage</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
