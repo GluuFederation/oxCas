@@ -134,7 +134,6 @@
                     <pomIncludes>
                         <pomInclude>pom.xml</pomInclude>
                     </pomIncludes>
-                    <invokerPropertiesFile>${basedir}/invoker.properties</invokerPropertiesFile>
                 </configuration>
                 <executions>
                     <execution>
