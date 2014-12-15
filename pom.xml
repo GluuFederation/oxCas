@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.xdi</groupId>
+    <artifactId>oxCas</artifactId>
+    <name>ox CAS</name>
+    <url>http://ox.gluu.org</url>
+    <packaging>pom</packaging>
+    <version>1.7.0.Beta3</version>
+
+    <prerequisites>
+        <maven>2.3</maven>
+    </prerequisites>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cas.version>4.0.0</cas.version>
+        <cas.dist.md5>92ec8bcd3bc89ef5c99a943859eda90a</cas.dist.md5>
+        <oxcore.version>1.7.0.Beta3</oxcore.version>
+        <oxauth.version>1.7.0.Beta3</oxauth.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>repository.jboss.org</id>
+            <name>JBoss Repository</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
+        <repository>
+            <id>gluu</id>
+            <name>Gluu repository</name>
+            <url>http://ox.gluu.org/maven</url>
+        </repository>
+    </repositories>
+
+    <scm>
+        <url>https://github.com/GluuFederation/oxCas</url>
+        <connection>scm:git:git://github.com/GluuFederation/oxCas.git</connection>
+        <developerConnection>scm:git:git@github.com:GluuFederation/oxCas.git</developerConnection>
+    </scm>
+
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+
+            <!-- Build number plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
+                        <configuration>
+                            <url>http://downloads.jasig.org/cas/cas-server-${cas.version}-release.tar.gz</url>
+                            <unpack>true</unpack>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <md5>${cas.dist.md5}</md5>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-patch-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <targetDirectory>${project.build.directory}/cas-server-${cas.version}</targetDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>gluu-patch</id>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <patchDirectory>src/main/patches</patchDirectory>
+                            <patchTrackingFile>${project.build.directory}/optimization-files/patches-applied.txt</patchTrackingFile>
+                            <naturalOrderProcessing>true</naturalOrderProcessing>
+                        </configuration>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>1.9</version>
+                <configuration>
+                    <streamLogs>true</streamLogs>
+                    <projectsDirectory>${project.build.directory}/cas-server-${cas.version}/cas-server-webapp</projectsDirectory>
+                    <pomIncludes>
+                        <pomInclude>pom.xml</pomInclude>
+                    </pomIncludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

@@ -1,0 +1,15 @@
+diff -aurN cas-server-webapp.orig\pom.xml cas-server-webapp\pom.xml
+--- cas-server-webapp.orig\pom.xml	Mon May 12 15:15:08 2014
++++ cas-server-webapp\pom.xml	Mon Dec 15 15:48:55 2014
+@@ -24,9 +24,9 @@
+     <version>4.0.0</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+-  <artifactId>cas-server-webapp</artifactId>
++  <artifactId>ox-cas-server-webapp</artifactId>
+   <packaging>war</packaging>
+-  <name>Jasig CAS Web Application</name>
++  <name>OX Gluu CAS Web Application</name>
+   <dependencies>
+     <dependency>
+       <groupId>org.jasig.cas</groupId>

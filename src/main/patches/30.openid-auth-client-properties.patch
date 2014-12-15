@@ -1,0 +1,13 @@
+diff -aurN cas-server-webapp.orig\src\main\webapp\WEB-INF\cas.properties cas-server-webapp\src\main\webapp\WEB-INF\cas.properties
+--- cas-server-webapp.orig\src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:54:20 2014
++++ cas-server-webapp\src\main\webapp\WEB-INF\cas.properties	Mon Dec 15 17:56:42 2014
+@@ -75,3 +75,9 @@
+ #=======================================
+  
+ memcached.servers=127.0.0.1:22123
++
++#========================================
++# OpenID properties
++#========================================
++openid.provider=https://ce.gluu.info/.well-known/openid-configuration
++openid.redirect-uri=https://ce.gluu.info/cas/login
