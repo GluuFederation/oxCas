@@ -101,7 +101,7 @@
                     </execution>
                 </executions>
             </plugin>
-<!--
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-patch-plugin</artifactId>
@@ -146,11 +146,14 @@
                                 <goal>clean</goal>
                                 <goal>install</goal>
                             </goals>
+                            <properties>
+                                <maven.test.skip>true</maven.test.skip>
+                            </properties>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
--->
+
         </plugins>
     </build>
 
