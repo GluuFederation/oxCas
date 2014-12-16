@@ -1,5 +1,5 @@
---- cas-server-webapp/pom.xml     2014-05-12 09:15:08.000000000 -0400
-+++ cas-server-webapp/pom.xml  2014-12-15 11:37:28.719071180 -0500
+--- cas-server-webapp/pom.xml.orig	Mon May 12 15:15:08 2014
++++ cas-server-webapp/pom.xml	Tue Dec 16 08:52:09 2014
 @@ -23,10 +23,11 @@
      <artifactId>cas-server</artifactId>
      <version>4.0.0</version>

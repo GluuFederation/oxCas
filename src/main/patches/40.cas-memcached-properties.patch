@@ -1,9 +1,9 @@
 --- cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:53:24 2014
 +++ cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:54:20 2014
-@@ -69,3 +69,9 @@
-  
- cas.themeResolver.defaultThemeName=cas-theme-default
- cas.viewResolver.basename=default_views
+@@ -75,3 +75,9 @@
+ #========================================
+ openid.provider=https://ce.gluu.info/.well-known/openid-configuration
+ openid.redirect-uri=https://ce.gluu.info/cas/login
 +
 +#=======================================
 +# Memcached connection configuration

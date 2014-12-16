@@ -12,14 +12,14 @@
  </beans>
 --- cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Mon May 12 15:15:03 2014
 +++ cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Mon Dec 15 17:45:14 2014
-@@ -60,6 +60,7 @@
+@@ -61,6 +61,7 @@
                     | If more than one instance of the same handler class is configured, you must explicitly
                     | set its name to something other than its default name (typically the simple class name).
                     -->
 +                <entry key-ref="clientAuthenticationHandler" value="#{null}" />
                  <entry key-ref="proxyAuthenticationHandler" value-ref="proxyPrincipalResolver" />
-                 <entry key-ref="primaryAuthenticationHandler" value-ref="primaryPrincipalResolver" />
              </map>
+         </constructor-arg>
 @@ -75,6 +76,12 @@
          </property>
          -->

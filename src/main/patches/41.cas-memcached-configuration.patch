@@ -1,0 +1,40 @@
+--- ticketRegistry.xml.orig	Mon May 12 15:15:04 2014
++++ ticketRegistry.xml	Tue Dec 16 10:24:10 2014
+@@ -28,20 +28,24 @@
+     </description>
+        
+   <!-- Ticket Registry -->
+-  <bean id="ticketRegistry" class="org.jasig.cas.ticket.registry.DefaultTicketRegistry" />
++  <bean id="ticketRegistry" class="org.jasig.cas.ticket.registry.MemCacheTicketRegistry">
++      <constructor-arg index="0" ref="memcachedClient" />
+ 	
+-	<!--Quartz -->
+-	<!-- TICKET REGISTRY CLEANER -->
+-	<bean id="ticketRegistryCleaner" class="org.jasig.cas.ticket.registry.support.DefaultTicketRegistryCleaner"
+-		p:ticketRegistry-ref="ticketRegistry"
+-		p:logoutManager-ref="logoutManager" />
++      <!-- TGT timeout in seconds -->
++      <constructor-arg index="1" value="21600" />
+ 	
+-	<bean id="jobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+-		p:targetObject-ref="ticketRegistryCleaner"
+-		p:targetMethod="clean" />
++      <!-- ST timeout in seconds -->
++      <constructor-arg index="2" value="300" />
++  </bean>
++ 
++  <!--
++    NOTE: Changing the transcoder implementation is not required, but Kryo provides for more
++    efficient serialization which significantly improves throughput and storage footprint.
++    See http://code.google.com/p/spymemcached/wiki/SpringIntegration for more info on options
++    for various property values.
++  -->
++  <bean id="memcachedClient" class="net.spy.memcached.spring.MemcachedClientFactoryBean"
++      p:servers="${memcached.servers}">
++  </bean>
+ 	
+-	<bean id="triggerJobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.SimpleTriggerBean"
+-		p:jobDetail-ref="jobDetailTicketRegistryCleaner"
+-		p:startDelay="20000"
+-		p:repeatInterval="5000000" />
+ </beans>
