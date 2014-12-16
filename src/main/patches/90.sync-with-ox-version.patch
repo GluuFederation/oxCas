@@ -29,7 +29,7 @@
      </dependency>
      <dependency>
        <groupId>org.springframework</groupId>
-@@ -216,6 +217,9 @@
+@@ -217,6 +218,9 @@
  
    <properties>
      <cs.dir>${project.parent.basedir}</cs.dir>
