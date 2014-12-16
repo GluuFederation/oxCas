@@ -1,0 +1,43 @@
+--- cas-server-webapp/pom.xml.orig	Tue Dec 16 12:10:34 2014
++++ cas-server-webapp/pom.xml	Tue Dec 16 12:24:59 2014
+@@ -32,18 +32,18 @@
+     <dependency>
+       <groupId>org.jasig.cas</groupId>
+       <artifactId>cas-server-support-ldap</artifactId>
+-      <version>${project.version}</version>
++      <version>${cas.project.version}</version>
+     </dependency>
+     <dependency>
+       <groupId>org.jasig.cas</groupId>
+       <artifactId>cas-server-webapp-support</artifactId>
+-      <version>${project.version}</version>
++      <version>${cas.project.version}</version>
+       <scope>compile</scope>
+     </dependency>
+     <dependency>
+       <groupId>org.jasig.cas</groupId>
+       <artifactId>cas-server-integration-memcached</artifactId>
+-      <version>${project.version}</version>
++      <version>${cas.project.version}</version>
+     </dependency>
+     <dependency>
+       <groupId>org.springframework</groupId>
+@@ -216,6 +216,7 @@
+ 
+   <properties>
+     <cs.dir>${project.parent.basedir}</cs.dir>
++    <cas.project.version>4.0.0</cas.project.version>
+ 
+     <oxcore.version>1.7.0.Beta3</oxcore.version>
+     <oxauth.version>1.7.0.Beta3</oxauth.version>
+--- cas-server-webapp/src/main/webapp/WEB-INF/web.xml.orig	Mon May 12 15:15:04 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/web.xml	Tue Dec 16 12:28:26 2014
+@@ -23,7 +23,7 @@
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+          version="2.4">
+-  <display-name>Central Authentication System (CAS) ${project.version}</display-name>
++  <display-name>Central Authentication System (CAS) ${cas.project.version}</display-name>
+ 
+   <context-param>
+     <param-name>contextConfigLocation</param-name>
