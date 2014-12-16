@@ -1,5 +1,5 @@
---- deployerConfigContext.xml.orig	Mon May 12 15:15:03 2014
-+++ deployerConfigContext.xml	Tue Dec 16 10:09:30 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml.orig	Mon May 12 15:15:03 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Tue Dec 16 10:09:30 2014
 @@ -54,6 +54,7 @@
      <bean id="authenticationManager" class="org.jasig.cas.authentication.PolicyBasedAuthenticationManager">
          <constructor-arg>

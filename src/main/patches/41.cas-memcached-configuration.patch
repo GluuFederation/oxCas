@@ -1,5 +1,5 @@
---- ticketRegistry.xml.orig	Mon May 12 15:15:04 2014
-+++ ticketRegistry.xml	Tue Dec 16 10:24:10 2014
+--- cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/ticketRegistry.xml.orig	Mon May 12 15:15:04 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/ticketRegistry.xml	Tue Dec 16 10:24:10 2014
 @@ -28,20 +28,24 @@
      </description>
         
