@@ -1,0 +1,72 @@
+--- cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml.orig	Tue Dec 16 10:52:50 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml	Tue Dec 16 11:41:44 2014
+@@ -137,13 +137,69 @@
+ 
+     <bean id="authenticator" class="org.ldaptive.auth.Authenticator"
+           c:resolver-ref="dnResolver"
++          p:entryResolver-ref="entryResolver"
+           c:handler-ref="authHandler" />
+ 
+     <bean id="dnResolver" class="org.ldaptive.auth.PooledSearchDnResolver"
+           p:baseDn="${ldap.baseDn}"
++          p:subtreeSearch="true"
+           p:allowMultipleDns="false"
+           p:connectionFactory-ref="searchPooledLdapConnectionFactory"
+           p:userFilter="${ldap.authn.searchFilter}" />
++
++    <!--START: Resolve entry in local LDAP -->
++    <bean id="entryResolver"
++      class="org.ldaptive.auth.SearchEntryResolver"
++      p:connectionFactory-ref="localSearchPooledLdapConnectionFactory"
++      p:baseDn="${ldap.local.baseDn}"
++      p:userFilter="uid={user}"
++      p:subtreeSearch="true" />
++ 
++    <bean id="localSearchPooledLdapConnectionFactory"
++          class="org.ldaptive.pool.PooledConnectionFactory"
++          p:connectionPool-ref="localSearchConnectionPool" />
++ 
++    <bean id="localSearchConnectionPool" parent="localAbstractConnectionPool"
++          p:connectionFactory-ref="localSearchConnectionFactory" />
++ 
++    <bean id="localSearchConnectionFactory"
++          class="org.ldaptive.DefaultConnectionFactory"
++          p:connectionConfig-ref="localSearchConnectionConfig" />
++ 
++    <bean id="localSearchConnectionConfig" parent="localAbstractConnectionConfig"
++          p:connectionInitializer-ref="localBindConnectionInitializer" />
++ 
++    <bean id="localBindConnectionInitializer"
++          class="org.ldaptive.BindConnectionInitializer"
++          p:bindDn="${ldap.local.managerDn}">
++        <property name="bindCredential">
++            <bean class="org.ldaptive.Credential"
++                  c:password="${ldap.local.managerPassword}" />
++        </property>
++    </bean>
++ 
++    <bean id="localAbstractConnectionPool" abstract="true"
++          class="org.ldaptive.pool.BlockingConnectionPool"
++          init-method="initialize"
++          p:poolConfig-ref="ldapPoolConfig"
++          p:blockWaitTime="${ldap.pool.blockWaitTime}"
++          p:validator-ref="searchValidator"
++          p:pruneStrategy-ref="pruneStrategy" />
++ 
++    <bean id="localAbstractConnectionConfig" abstract="true"
++          class="org.ldaptive.ConnectionConfig"
++          p:ldapUrl="${ldap.local.url}"
++          p:connectTimeout="${ldap.local.connectTimeout}"
++          p:useStartTLS="${ldap.local.useStartTLS}"
++          p:sslConfig-ref="localSslConfig" />
++ 
++    <bean id="localSslConfig" class="org.ldaptive.ssl.SslConfig">
++        <property name="credentialConfig">
++            <bean class="org.ldaptive.ssl.X509CredentialConfig"
++                  p:trustCertificates="${ldap.local.trustedCert}" />
++        </property>
++    </bean>
++    <!--END: Resolve entry in local LDAP -->
+ 
+     <bean id="searchPooledLdapConnectionFactory"
+           class="org.ldaptive.pool.PooledConnectionFactory"

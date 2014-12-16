@@ -1,0 +1,32 @@
+--- cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:54:20 2014
++++ cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:56:42 2014
+@@ -60,6 +60,29 @@
+ ldap.managerPassword=secret
+  
+ #========================================
++# Local LDAP Entry resolver properties
++#========================================
++ldap.local.url=ldaps://ce.gluu.info:1636
++ 
++# Base DN of users to be authenticated
++ldap.local.baseDn=ou=people,o=@!DA85.5F98.95A1.CA3B!0001!90C1.DE4F,o=gluu
++ 
++# LDAP connection timeout in milliseconds
++ldap.local.connectTimeout=3000
++ 
++# Whether to use StartTLS (probably needed if not SSL connection)
++ldap.local.useStartTLS=false
++ 
++# SSL certificate of LDAP directory to trust
++ldap.local.trustedCert=file:/etc/certs/DA855F9895A1CA3B000190C1DE4F-java.crt
++ 
++# Manager credential DN
++ldap.local.managerDn=cn=Directory Manager
++ 
++# Manager credential password
++ldap.local.managerPassword=secret
++
++#========================================
+ # LDAP connection pool configuration
+ #========================================
+ ldap.pool.minSize=1

@@ -1,12 +1,15 @@
 --- cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:54:20 2014
 +++ cas-server-webapp/src/main/webapp/WEB-INF/cas.properties	Mon Dec 15 17:56:42 2014
-@@ -69,3 +69,9 @@
- 
- cas.themeResolver.defaultThemeName=cas-theme-default
+@@ -14,6 +14,12 @@
  cas.viewResolver.basename=default_views
-+
-+#========================================
+ 
+ #========================================
 +# OpenID properties
 +#========================================
 +openid.provider=https://ce.gluu.info/.well-known/openid-configuration
 +openid.redirect-uri=https://ce.gluu.info/cas/login
++
++#========================================
+ # Password Policy
+ #========================================
+ # Warn all users of expiration date regardless of warningDays value.
