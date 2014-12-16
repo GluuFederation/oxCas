@@ -1,6 +1,6 @@
 --- cas-server-webapp/pom.xml.orig	Tue Dec 16 08:52:09 2014
 +++ cas-server-webapp/pom.xml	Tue Dec 16 08:53:01 2014
-@@ -31,6 +31,11 @@
+@@ -30,6 +30,11 @@
    <dependencies>
      <dependency>
        <groupId>org.jasig.cas</groupId>
