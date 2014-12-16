@@ -1,11 +1,11 @@
 --- cas-server-webapp/pom.xml.orig	Tue Dec 16 08:54:29 2014
 +++ cas-server-webapp/pom.xml	Tue Dec 16 08:55:05 2014
-@@ -65,6 +65,118 @@
+@@ -65,6 +65,119 @@
        <type>jar</type>
        <scope>runtime</scope>
      </dependency>
 +
-+    <!-- OX OpenId Authentication -->
++    <!--START: OX OpenId Authentication -->
 +    <dependency>
 +      <groupId>org.xdi</groupId>
 +      <artifactId>cas-openid-auth-client</artifactId>
@@ -116,6 +116,7 @@
 +        </exclusion>
 +      </exclusions>
 +    </dependency>
++    <!--END: OX OpenId Authentication -->
    </dependencies>
  
    <build>
