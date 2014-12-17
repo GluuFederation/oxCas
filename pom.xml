@@ -3,8 +3,8 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.xdi</groupId>
-    <artifactId>oxCas</artifactId>
-    <name>ox CAS</name>
+    <artifactId>oxcas</artifactId>
+    <name>OX CAS</name>
     <url>http://ox.gluu.org</url>
     <packaging>pom</packaging>
     <version>1.7.0.Beta4</version>
@@ -82,6 +82,7 @@
                 <version>1.2.1</version>
                 <executions>
                     <execution>
+                        <id>download-dist</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>wget</goal>
