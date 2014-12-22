@@ -1,0 +1,29 @@
+--- cas-server-webapp/src/main/resources/log4j.xml.orig	Mon May 12 15:15:06 2014
++++ cas-server-webapp/src/main/resources/log4j.xml	Mon Dec 22 15:38:45 2014
+@@ -32,12 +32,12 @@
+         </layout>
+     </appender>
+ 
+-    <appender name="cas" class="org.apache.log4j.RollingFileAppender">
+-        <param name="File" value="cas.log" />
+-        <param name="MaxFileSize" value="512KB" />
+-        <param name="MaxBackupIndex" value="3" />
++    <appender name="cas" class="org.apache.log4j.DailyRollingFileAppender">
++        <param name="File" value="${catalina.home}/logs/cas.log" />
++        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+         <layout class="org.apache.log4j.PatternLayout">
+-            <param name="ConversionPattern" value="%d %p [%c] - %m%n"/>
++            <!-- The default pattern: Date Priority [Category] Message\n -->
++            <param name="ConversionPattern" value="%d %-5p [%c{6}] %m%n" />
+         </layout>
+     </appender>
+ 
+@@ -56,7 +56,7 @@
+ 
+     <!-- This file appender is used to output aggregated performance statistics -->
+     <appender name="fileAppender" class="org.apache.log4j.FileAppender">
+-        <param name="File" value="perfStats.log"/>
++        <param name="File" value="${catalina.home}/logs/cas_perfStats.log"/>
+         <layout class="org.apache.log4j.PatternLayout">
+             <param name="ConversionPattern" value="%m%n"/>
+         </layout>
