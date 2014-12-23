@@ -7,7 +7,7 @@
 +#=======================================
 +# Memcached connection configuration
 +#=======================================
-+memcached.servers=127.0.0.1:22123
++memcached.servers=127.0.0.1:11211
 +
  #========================================
  # Password Policy
