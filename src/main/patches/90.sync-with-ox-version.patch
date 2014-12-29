@@ -35,10 +35,10 @@
      <cs.dir>${project.parent.basedir}</cs.dir>
 +    <cas.version>4.0.0</cas.version>
 +
-+    <oxcas.version>1.7.0.Beta5</oxcas.version>
++    <oxcas.version>1.7.0.Beta6</oxcas.version>
  
-     <oxcore.version>1.7.0.Beta5</oxcore.version>
-     <oxauth.version>1.7.0.Beta5</oxauth.version>
+     <oxcore.version>1.7.0.Beta6</oxcore.version>
+     <oxauth.version>1.7.0.Beta6</oxauth.version>
 --- cas-server-webapp/src/main/webapp/WEB-INF/web.xml.orig	Mon May 12 15:15:04 2014
 +++ cas-server-webapp/src/main/webapp/WEB-INF/web.xml	Tue Dec 16 12:28:26 2014
 @@ -23,7 +23,7 @@
