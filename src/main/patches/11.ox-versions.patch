@@ -19,9 +19,9 @@
    <properties>
      <cs.dir>${project.parent.basedir}</cs.dir>
 +
-+    <oxcore.version>3.0.0-SNAPSHOT</oxcore.version>
-+    <oxauth.version>3.0.0-SNAPSHOT</oxauth.version>
-+    <oxtrust.version>3.0.0-SNAPSHOT</oxtrust.version>
++    <oxcore.version>2.0.0.Final</oxcore.version>
++    <oxauth.version>2.0.0.Final</oxauth.version>
++    <oxtrust.version>2.0.0.Final</oxtrust.version>
    </properties>
  </project>
  
