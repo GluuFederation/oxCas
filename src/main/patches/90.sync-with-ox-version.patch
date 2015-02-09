@@ -35,7 +35,7 @@
      <cs.dir>${project.parent.basedir}</cs.dir>
 +    <cas.version>4.0.0</cas.version>
 +
-+    <oxcas.version>3.0.1-SNAPSHOT</oxcas.version>
++    <oxcas.version>3.0.0-SNAPSHOT</oxcas.version>
  
      <oxcore.version>3.0.0-SNAPSHOT</oxcore.version>
      <oxauth.version>3.0.0-SNAPSHOT</oxauth.version>
