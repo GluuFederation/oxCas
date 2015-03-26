@@ -17,8 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cas.version>4.0.0</cas.version>
         <cas.dist.md5>92ec8bcd3bc89ef5c99a943859eda90a</cas.dist.md5>
-        <oxcore.version>3.0.0-SNAPSHOT</oxcore.version>
-        <oxauth.version>3.0.0-SNAPSHOT</oxauth.version>
+        <oxcore.version>2.1.0.Final</oxcore.version>
+        <oxauth.version>2.1.0.Final</oxauth.version>
     </properties>
 
     <repositories>
