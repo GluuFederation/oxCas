@@ -62,7 +62,7 @@
          <transition on="notExists" to="gatewayRequestCheck"/>
 --- cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/applicationContext.xml	Mon May 12 15:15:04 2014
 +++ cas-server-webapp/src/main/webapp/WEB-INF/spring-configuration/applicationContext.xml	Mon Dec 15 17:45:01 2014
-@@ -136,5 +136,22 @@
+@@ -136,5 +136,23 @@
  
      <!-- The scheduler bean wires up any triggers that define scheduled tasks -->
      <bean id="scheduler" class="org.jasig.cas.util.AutowiringSchedulerFactoryBean"/>
@@ -77,6 +77,7 @@
 +        <property name="openIdScopes">
 +            <util:list>
 +                <value>openid</value>
++                <value>user_name</value>
 +                <value>email</value>
 +                <value>profile</value>
 +            </util:list>
