@@ -1,0 +1,50 @@
+--- cas-server-webapp/src/main/webapp/WEB-INF/cas.properties      2015-07-06 17:40:50.000000000 +0000
++++ cas-server-webapp/src/main/webapp/WEB-INF/cas.properties      2015-07-14 17:58:28.81*2000497 +0000
+@@ -16,8 +16,9 @@
+ #========================================
+ # OpenID properties
+ #========================================
+-openid.provider=https://ce.gluu.info/.well-known/openid-configuration
+-openid.redirect-uri=https://ce.gluu.info/cas/login
++openid.issuer=https://ce.gluu.info
++openid.provider=${openid.issuer}/.well-known/openid-configuration
++openid.redirect-uri=${openid.issuer}/cas/login
+
+ #=======================================
+ # Memcached connection configuration
+--- cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml.orig      2015-07-03 12:33:44.000000000 +0000
++++ cas-server-webapp/src/main/webapp/WEB-INF/deployerConfigContext.xml           2015-07-14 17:59:05.180000483 +0000
+@@ -284,9 +284,11 @@
+             p:registeredServices-ref="registeredServicesList" />
+
+     <util:list id="registeredServicesList">
++       <!--
+         <bean class="org.jasig.cas.services.RegexRegisteredService"
+               p:id="0" p:name="HTTP and IMAP" p:description="Allows HTTP(S) and IMAP(S) protocols"
+               p:serviceId="^(https?|imaps?)://.*" p:evaluationOrder="10000001" />
++       -->
+         <!--
+         Use the following definition instead of the above to further restrict access
+         to services within your domain (including sub domains).
+@@ -306,8 +308,20 @@
+             </property>
+         </bean>
+         -->
++
++       <bean class="org.jasig.cas.services.RegisteredServiceImpl">
++           <property name="id" value="1"/>
++            <property name="name" value="Local service"/>
++           <property name="description" value="Allows to log in using CAS to oxAuth"/>
++           <property name="serviceId" value="${openid.issuer}/oxauth/postlogin"/>
++           <property name="allowedAttributes">
++               <list>
++                   <value>username</value>
++               </list>
++           </property>
++       </bean>
+     </util:list>
+-
++
+     <bean id="auditTrailManager" class="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager" />
+
+     <bean id="healthCheckMonitor" class="org.jasig.cas.monitor.HealthCheckMonitor" p:monitors-ref="monitorsList" />
