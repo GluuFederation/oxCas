@@ -99,8 +99,28 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>prepare</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <target>
+                                <unzip src="src/main/patches.zip" dest="target/patches" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-patch-plugin</artifactId>
-                <version>1.2</version>
+                <version>1.1.1</version>
                 <configuration>
                     <targetDirectory>${project.build.directory}/cas-${cas.version}</targetDirectory>
                 </configuration>
@@ -109,7 +129,7 @@
                         <id>gluu-patch</id>
                         <phase>process-sources</phase>
                         <configuration>
-                            <patchDirectory>src/main/patches</patchDirectory>
+                            <patchDirectory>target/patches</patchDirectory>
                             <naturalOrderProcessing>true</naturalOrderProcessing>
                             <optimizations>false</optimizations>
                         </configuration>
