@@ -15,8 +15,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cas.version>4.0.0</cas.version>
-        <cas.dist.md5>92ec8bcd3bc89ef5c99a943859eda90a</cas.dist.md5>
+        <cas.version>4.0.2</cas.version>
+        <cas.dist.md5>ce364b445cb91f3f7b5336d76770aeea</cas.dist.md5>
         <oxcore.version>3.0.2-SNAPSHOT</oxcore.version>
         <oxauth.version>3.0.2-SNAPSHOT</oxauth.version>
     </properties>
@@ -88,7 +88,7 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>http://downloads.jasig.org/cas/cas-server-${cas.version}-release.tar.gz</url>
+                            <url>https://github.com/Jasig/cas/archive/v${cas.version}.zip</url>
                             <unpack>true</unpack>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <md5>${cas.dist.md5}</md5>
@@ -102,7 +102,7 @@
                 <artifactId>maven-patch-plugin</artifactId>
                 <version>1.1.1</version>
                 <configuration>
-                    <targetDirectory>${project.build.directory}/cas-server-${cas.version}</targetDirectory>
+                    <targetDirectory>${project.build.directory}/cas-${cas.version}</targetDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -125,7 +125,7 @@
                 <version>1.9</version>
                 <configuration>
                     <streamLogs>true</streamLogs>
-                    <projectsDirectory>${project.build.directory}/cas-server-${cas.version}/cas-server-webapp</projectsDirectory>
+                    <projectsDirectory>${project.build.directory}/cas-${cas.version}/cas-server-webapp</projectsDirectory>
                     <pomIncludes>
                         <pomInclude>pom.xml</pomInclude>
                     </pomIncludes>
