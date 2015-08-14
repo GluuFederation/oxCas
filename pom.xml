@@ -100,7 +100,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-patch-plugin</artifactId>
-                <version>1.1.1</version>
+                <version>1.2</version>
                 <configuration>
                     <targetDirectory>${project.build.directory}/cas-${cas.version}</targetDirectory>
                 </configuration>
