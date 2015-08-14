@@ -19,9 +19,9 @@
    <properties>
      <cs.dir>${project.parent.basedir}</cs.dir>
 +
-+    <oxcore.version>2.3.2.Final</oxcore.version>
-+    <oxauth.version>2.3.2.Final</oxauth.version>
-+    <oxtrust.version>2.3.2.Final</oxtrust.version>
++    <oxcore.version>2.3.3.Final</oxcore.version>
++    <oxauth.version>2.3.3.Final</oxauth.version>
++    <oxtrust.version>2.3.3.Final</oxtrust.version>
    </properties>
  </project>
  
