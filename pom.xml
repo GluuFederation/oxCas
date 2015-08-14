@@ -125,7 +125,7 @@
                 <version>1.9</version>
                 <configuration>
                     <streamLogs>true</streamLogs>
-                    <projectsDirectory>${project.build.directory}/cas-server-${cas.version}/cas-server-webapp</projectsDirectory>
+                    <projectsDirectory>${project.build.directory}/cas-${cas.version}/cas-server-webapp</projectsDirectory>
                     <pomIncludes>
                         <pomInclude>pom.xml</pomInclude>
                     </pomIncludes>
