@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cas.version>4.0.2</cas.version>
         <cas.dist.md5>06622b425308609dadd6580e122e6ff8</cas.dist.md5>
-        <oxcore.version>2.4.4.sp4</oxcore.version>
+        <oxcore.version>2.4.4.sp3</oxcore.version>
         <oxauth.version>2.4.4.sp4</oxauth.version>
     </properties>
 
