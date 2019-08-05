@@ -7,7 +7,7 @@
     <name>OX CAS</name>
     <url>http://ox.gluu.org</url>
     <packaging>pom</packaging>
-    <version>3.1.6.sp1</version>
+    <version>3.1.7.Final</version>
 
     <prerequisites>
         <maven>2.3</maven>
@@ -17,8 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cas.version>4.0.2</cas.version>
         <cas.dist.md5>06622b425308609dadd6580e122e6ff8</cas.dist.md5>
-        <oxcore.version>3.1.6.sp1</oxcore.version>
-        <oxauth.version>3.1.6.sp1</oxauth.version>
+        <oxcore.version>3.1.7.Final</oxcore.version>
+        <oxauth.version>3.1.7.Final</oxauth.version>
     </properties>
 
     <repositories>
